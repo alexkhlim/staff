@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1 style="font-style: italic">Информация о сотруднике:</h1><br>
+    <b>Имя: </b>{{ sotr.name }}<br>
+    <b>Фамилия: </b>{{ sotr.surname}}<br>
+{#    <div class="alert alert-warning mt-2">#}
+    <b>Фото: </b><img src="{{ sotr.img.url }}" height ="200px"><br>
+
+{#    </div>#}
+    <b>Выданные вещи: </b><br>
+    <div class="album py-0 bg-light">
+        <div class="container">
+             <div class="row">
+                {% for acc in accs %}
+                    <div class="col-md-4">
+                        <div class="card mb-4 shadow-sm">
+                            <div class="card-body">
+                                <b>что выдано: </b>{{ acc.name }}<br>
+                                <b>Цена: </b>{{ acc.prise }}<br>
+                                <img src="/media/{{ acc.img }}" height ="70px">
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+             </div>
+        </div>
+    </div>
+{% endblock %}
