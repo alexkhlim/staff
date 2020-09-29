@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Создать нового сотрудника</h1>
+<form action="/createempl/" method="post" enctype="multipart/form-data">
+{% csrf_token %}
+{{ form }}
+<button type="submit">Save</button>
+</form>
+{% endblock %}
